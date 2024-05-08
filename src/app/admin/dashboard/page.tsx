@@ -1,10 +1,51 @@
+"use client";
+import { CloseOutlined } from "@ant-design/icons";
+import PrimaryButton from "@components/Form/Button/Primary";
 import PageTitle from "@components/UI/PageTitle";
+import useSWR from "swr";
 
 function Dashboard() {
+  const { data, isLoading, mutate } = useSWR<any[]>("/products?limit=10");
+
+  if (isLoading || !data) return <p>Loading...</p>;
+
+  function addProduct(data: any) {
+    const newTodo = {
+      userId: 1,
+      id: data.length + 1,
+      title: "new product " + (data.length + 1),
+      completed: false,
+    };
+
+    return [...data, newTodo];
+  }
+
+  function removeTodo(id: any) {
+    return data?.filter((item) => item.id !== id);
+  }
+
   return (
-    <div>
+    <>
       <PageTitle title="Dashboard" />
-    </div>
+      <div className="space-y-3">
+        {data.map((product: any) => (
+          <div className="flex gap-3 items-center">
+            <p key={product.id}>{product.title}</p>
+            <CloseOutlined
+              className="text-danger cursor-pointer"
+              onClick={() =>
+                mutate(() => removeTodo(product.id), { revalidate: false })
+              }
+            />
+          </div>
+        ))}
+        <PrimaryButton
+          onClick={() => mutate(addProduct, { revalidate: false })}
+        >
+          Add Todo
+        </PrimaryButton>
+      </div>
+    </>
   );
 }
 

@@ -4,16 +4,15 @@ import { ReactElement } from "react";
 import Sidebar from "./_layouts/Sidebar";
 import Topbar from "./_layouts/Topbar";
 import SidebarCollapsedContextProvider from "@context/Sidebar";
-// import SidebarCollapsedContextProvider from "@context/Sidebar";
 
 function DashboardLayout({ children }: { children: ReactElement }) {
   return (
     <SidebarCollapsedContextProvider>
       <Layout className="h-screen">
         <Sidebar />
-        <Content className="overflow-auto">
+        <Content>
           <Topbar />
-          <Content className="m-4 p-4 rounded-lg bg-white h-screen">
+          <Content className="m-4 p-4 rounded-lg bg-white h-[calc(100%-100px)] overflow-auto">
             {children}
           </Content>
         </Content>

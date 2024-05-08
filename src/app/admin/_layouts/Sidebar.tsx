@@ -21,7 +21,13 @@ function Sidebar() {
       collapsed={collapsed}
     >
       <div className="flex justify-center items-center p-6">
-        <Image src="/assets/logo.png" alt="logo" height={80} width={80} />
+        <Image
+          priority
+          src="/assets/logo.png"
+          alt="logo"
+          height={80}
+          width={80}
+        />
       </div>
       <Menu
         selectedKeys={[pathname]}

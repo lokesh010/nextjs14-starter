@@ -6,15 +6,18 @@ Official [Next.js 14](https://nextjs.org/) project template for [Varosa Technolo
 
   - app
 
-    - \_components (unit testable UI building blocks)
-    - \_context (react context)
-    - \_hooks (custom hooks)
-    - \_lib (third party library interface for hot swapping)
-    - \_utils (helpers)
+    - <b>api</b> <i>(api calls)</i>
+    - shared
 
-  - middleware (for protected routes and redirection)
+      - <b>components</b> <i>(unit testable UI building blocks)</i>
+      - <b>context</b> <i>(react context)</i>
+      - <b>hooks</b> <i>(custom hooks)</i>
+      - <b>lib</b> <i>(library interface for hot swapping)</i>
+      - <b>utils</b> <i>(helpers)</i>
 
-## Run the development server and start building!
+  - <b>middleware</b> <i>(for protected routes and redirection)</i>
+
+## Fork the Repo and start building!
 
 ```bash
 npm run dev
