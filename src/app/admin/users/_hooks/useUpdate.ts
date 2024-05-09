@@ -1,15 +1,14 @@
-// @ts-nocheck
-import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { UpdateInputTypes } from "../types";
-import { updateUserResolver as resolver } from "../schemas";
+import { useParams } from 'next/navigation';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { updateUserResolver as resolver } from '../schemas';
+import { UpdateInputTypes } from '../types';
+import { updateUserReq } from '@api/users';
 
 function useUpdate() {
-  const router = useRouter();
   const params = useParams();
   const { id } = params;
-  const [updateLoading, setUpdateLoading] = useState();
+  const [updateLoading, setUpdateLoading] = useState(false);
   const formHooks = useForm<UpdateInputTypes>({
     resolver,
   });
@@ -18,24 +17,20 @@ function useUpdate() {
     return data;
   }
 
-  function dtoToForm(data) {
-    return data;
-  }
-
-  function updatePostHandler(data: UpdateInputTypes) {
+  function updateUserHandler(data: UpdateInputTypes) {
     setUpdateLoading(true);
-    updatePost(id, formToDto(data))
-      .then((res: any) => {
+    updateUserReq({ id, data: formToDto(data) })
+      .then(() => {
         // router.push('/post');
       })
-      .catch(responseErrorHandler)
+      // .catch(responseErrorHandler)
       .finally(() => setUpdateLoading(false));
   }
 
   return {
     formHooks,
     updateLoading,
-    updatePostHandler,
+    updateUserHandler,
   };
 }
 

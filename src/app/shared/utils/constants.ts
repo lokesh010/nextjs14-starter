@@ -1,1 +1,1 @@
-export const public_routes = ["/login", "/register", "/"];
+export const public_routes = ['/login', '/register', '/'];

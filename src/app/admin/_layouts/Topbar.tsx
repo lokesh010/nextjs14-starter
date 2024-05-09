@@ -1,14 +1,14 @@
-"use client";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { SidebarContext } from "@context/Sidebar";
-import { Avatar, Dropdown } from "antd";
-import { Header } from "antd/es/layout/layout";
-import Link from "next/link";
-import React, { useContext } from "react";
+'use client';
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { SidebarContext } from '@context/Sidebar';
+import { Avatar, Dropdown } from 'antd';
+import { Header } from 'antd/es/layout/layout';
+import Link from 'next/link';
+import React, { useContext } from 'react';
 
 const dropdownItems = [
-  { path: "/", title: "Profile" },
-  { path: "/login", title: "Logout" },
+  { path: '/', title: 'Profile' },
+  { path: '/login', title: 'Logout' },
 ];
 
 function Topbar() {
@@ -16,16 +16,16 @@ function Topbar() {
     useContext(SidebarContext);
 
   return (
-    <Header className="flex justify-between !bg-white transition duration-500 px-6">
+    <Header className="flex justify-between !bg-white px-6 transition duration-500">
       {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-        className: "trigger text-light-blue text-xl",
+        className: 'trigger text-light-blue text-xl',
         onClick: () => setSidebar(!collapsed),
         style: {
-          placeSelf: "center",
+          placeSelf: 'center',
         },
       })}
       <Dropdown
-        trigger={["click"]}
+        trigger={['click']}
         menu={{
           items: dropdownItems.map((_) => ({
             key: _.title,

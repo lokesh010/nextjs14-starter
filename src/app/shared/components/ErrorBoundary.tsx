@@ -1,7 +1,7 @@
 // @ts-nocheck
-"use client";
-import { Button, Result } from "antd";
-import React from "react";
+'use client';
+import { Button, Result } from 'antd';
+import React from 'react';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class ErrorBoundary extends React.Component {
     // Define a state variable to track whether is an error or not
     this.state = { hasError: false };
   }
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     // Update state so the next render will show the fallback UI
 
     return { hasError: true };

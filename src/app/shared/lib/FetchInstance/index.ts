@@ -1,12 +1,13 @@
-import * as e from "./handleErrors";
+import * as e from './handleErrors';
 
 const fetchClient: typeof fetch = async (url, params) => {
+  // eslint-disable-next-line
   const headers: HeadersInit = {
-    Authorization: "Bearer " + "token",
+    Authorization: 'Bearer ' + 'token',
   };
 
   try {
-    const data = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "" + url, {
+    const data = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '' + url, {
       headers,
       ...params,
     });
@@ -16,7 +17,7 @@ const fetchClient: typeof fetch = async (url, params) => {
     // handle promise errors
     switch (data.status) {
       case 404:
-        window.location.pathname = "/admin/dashboard";
+        window.location.pathname = '/admin/dashboard';
         break;
 
       case 401:

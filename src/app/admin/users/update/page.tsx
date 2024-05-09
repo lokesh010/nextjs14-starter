@@ -1,12 +1,16 @@
-"use client";
-import PageTitle from "@components/UI/PageTitle";
-import useUpdate from "../_hooks/useUpdate";
-import { UpdateInputTypes } from "../types";
-import AppInput from "@components/Form/Input";
-import AppPrimaryButton from "@components/Form/Button/Primary";
+'use client';
+import PageTitle from '@components/UI/PageTitle';
+import useUpdate from '../_hooks/useUpdate';
+import { UpdateInputTypes } from '../types';
+import AppInput from '@components/Form/Input';
+import AppPrimaryButton from '@components/Form/Button/Primary';
 
 function Page() {
-  const { updateLoading, updatePostHandler, formHooks } = useUpdate();
+  const {
+    updateLoading,
+    updateUserHandler: updatePostHandler,
+    formHooks,
+  } = useUpdate();
   const { control, handleSubmit } = formHooks;
 
   function submitHandler(data: UpdateInputTypes) {

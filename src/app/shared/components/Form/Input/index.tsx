@@ -1,5 +1,5 @@
-import { Input, InputProps } from "antd";
-import { Control, Controller } from "react-hook-form";
+import { Input, InputProps } from 'antd';
+import { Control, Controller } from 'react-hook-form';
 
 type IProps = InputProps & {
   required?: boolean;
@@ -11,13 +11,13 @@ type IProps = InputProps & {
 
 function AppInput(props: IProps) {
   const { required, label, name, placeholder, control, ...restProps } = props;
-  const _placeholder = placeholder || "Enter " + label;
+  const _placeholder = placeholder || 'Enter ' + label;
 
   return (
     <div className="flex flex-col gap-1">
       <p>
         {label}
-        {required && "*"}
+        {required && '*'}
       </p>
       <Controller
         name={name}
@@ -26,7 +26,7 @@ function AppInput(props: IProps) {
           return (
             <div className="w-full">
               <Input
-                className={error && "border border-danger"}
+                className={error && 'border border-danger'}
                 title={label}
                 value={value}
                 onChange={onChange}

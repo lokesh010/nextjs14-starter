@@ -3,29 +3,29 @@ import {
   HomeOutlined,
   PlusOutlined,
   UserOutlined,
-} from "@ant-design/icons";
-import { ItemType, MenuItemType } from "antd/es/menu/hooks/useItems";
+} from '@ant-design/icons';
+import { ItemType, MenuItemType } from 'antd/es/menu/hooks/useItems';
 
 const sidebarMenuItems: ItemType<MenuItemType>[] = [
   {
-    key: "/admin/dashboard",
+    key: '/admin/dashboard',
     icon: <HomeOutlined />,
-    label: "Dashboard",
+    label: 'Dashboard',
   },
   {
-    key: "/admin/users",
+    key: '/admin/users',
     icon: <UserOutlined />,
-    label: "Users",
+    label: 'Users',
     children: [
       {
-        key: "/admin/users/create",
+        key: '/admin/users/create',
         icon: <PlusOutlined />,
-        label: "Create",
+        label: 'Create',
       },
       {
-        key: "/admin/users/update",
+        key: '/admin/users/update',
         icon: <EditOutlined />,
-        label: "Update",
+        label: 'Update',
       },
     ],
   },

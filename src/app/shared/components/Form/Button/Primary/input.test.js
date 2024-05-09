@@ -11,7 +11,9 @@ describe('AppPrimaryButton', () => {
 
   test('renders button with custom label', () => {
     render(<AppPrimaryButton label="Custom Label" />);
-    expect(screen.getByRole('button', { name: 'Custom Label' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Custom Label' }),
+    ).toBeInTheDocument();
   });
 
   test('calls onClick callback when button is clicked', () => {
@@ -24,6 +26,9 @@ describe('AppPrimaryButton', () => {
 
   test('passes other props to the button element', () => {
     render(<AppPrimaryButton id="submit-button" />);
-    expect(screen.getByRole('button', { name: 'Submit' })).toHaveAttribute('id', 'submit-button');
+    expect(screen.getByRole('button', { name: 'Submit' })).toHaveAttribute(
+      'id',
+      'submit-button',
+    );
   });
 });

@@ -1,9 +1,10 @@
 // @ts-nocheck REMOVE THIS LINE IN REAL USE
 
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { CreateInputTypes } from "../types";
-import { createUserResolver as resolver } from "../schemas";
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { CreateInputTypes } from '../types';
+import { createUserResolver as resolver } from '../schemas';
+import { createUserReq } from '@api/users';
 
 function useCreate() {
   const [loading, setLoading] = useState();
@@ -15,20 +16,20 @@ function useCreate() {
     return data;
   }
 
-  function createPostHandler(data: CreateInputTypes) {
+  function createUserHandler(data: CreateInputTypes) {
     setLoading(true);
-    createPost(formToDto(data))
-      .then((res: any) => {
+    createUserReq(formToDto(data))
+      .then(() => {
         // router.push('/post');
       })
-      .catch(responseErrorHandler)
+      // .catch(responseErrorHandler)
       .finally(() => setLoading(false));
   }
 
   return {
     formHooks,
     loading,
-    createPostHandler,
+    createUserHandler,
   };
 }
 

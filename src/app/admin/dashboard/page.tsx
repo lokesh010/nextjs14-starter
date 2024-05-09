@@ -1,11 +1,11 @@
-"use client";
-import { CloseOutlined } from "@ant-design/icons";
-import PrimaryButton from "@components/Form/Button/Primary";
-import PageTitle from "@components/UI/PageTitle";
-import useSWR from "swr";
+'use client';
+import { CloseOutlined } from '@ant-design/icons';
+import PrimaryButton from '@components/Form/Button/Primary';
+import PageTitle from '@components/UI/PageTitle';
+import useSWR from 'swr';
 
 function Dashboard() {
-  const { data, isLoading, mutate } = useSWR<any[]>("/products?limit=10");
+  const { data, isLoading, mutate } = useSWR<any[]>('/products?limit=10');
 
   if (isLoading || !data) return <p>Loading...</p>;
 
@@ -13,7 +13,7 @@ function Dashboard() {
     const newTodo = {
       userId: 1,
       id: data.length + 1,
-      title: "new product " + (data.length + 1),
+      title: 'new product ' + (data.length + 1),
       completed: false,
     };
 
@@ -29,10 +29,10 @@ function Dashboard() {
       <PageTitle title="Dashboard" />
       <div className="space-y-3">
         {data.map((product: any) => (
-          <div className="flex gap-3 items-center">
-            <p key={product.id}>{product.title}</p>
+          <div key={product.id} className="flex items-center gap-3">
+            <p>{product.title}</p>
             <CloseOutlined
-              className="text-danger cursor-pointer"
+              className="cursor-pointer text-danger"
               onClick={() =>
                 mutate(() => removeTodo(product.id), { revalidate: false })
               }

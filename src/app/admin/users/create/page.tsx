@@ -1,12 +1,16 @@
-"use client";
-import PageTitle from "@components/UI/PageTitle";
-import useCreate from "../_hooks/useCreate";
-import { CreateInputTypes } from "../types";
-import AppInput from "@components/Form/Input";
-import AppPrimaryButton from "@components/Form/Button/Primary";
+'use client';
+import PageTitle from '@components/UI/PageTitle';
+import useCreate from '../_hooks/useCreate';
+import { CreateInputTypes } from '../types';
+import AppInput from '@components/Form/Input';
+import AppPrimaryButton from '@components/Form/Button/Primary';
 
 function Page() {
-  const { loading, createPostHandler, formHooks } = useCreate();
+  const {
+    loading,
+    createUserHandler: createPostHandler,
+    formHooks,
+  } = useCreate();
   const { control, handleSubmit } = formHooks;
 
   function submitHandler(data: CreateInputTypes) {

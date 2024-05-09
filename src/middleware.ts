@@ -1,12 +1,12 @@
-import { jwtDecode } from "jwt-decode";
-import { NextRequest, NextResponse } from "next/server";
-import { UserRole } from "./app/shared/utils/types";
-import { public_routes } from "@utils/constants";
+// import { jwtDecode } from "jwt-decode";
+import { NextRequest, NextResponse } from 'next/server';
+import { UserRole } from './app/shared/utils/types';
+import { public_routes } from '@utils/constants';
 
 const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
 
-const userRole = "admin";
+const userRole = 'admin';
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -15,7 +15,7 @@ export async function middleware(request: NextRequest) {
   // const cookie = request.cookies.get(process.env.TOKEN as string);
   // const token = cookie?.value;
 
-  if (!token) return NextResponse.redirect("/login");
+  if (!token) return NextResponse.redirect('/login');
 
   // // if token is expired then redirect to login page
   // if (user.exp < Date.now() / 1000) {
@@ -27,8 +27,8 @@ export async function middleware(request: NextRequest) {
   if (public_routes.includes(pathname)) return NextResponse.next();
 
   // if user role is not admin and user is trying to access admin routes then redirect to login page
-  if (userRole === UserRole.ADMIN && !pathname.startsWith("/admin/")) {
-    url.pathname = "/admin/dashboard";
+  if (userRole === UserRole.ADMIN && !pathname.startsWith('/admin/')) {
+    url.pathname = '/admin/dashboard';
     return NextResponse.redirect(url);
   }
 
@@ -46,6 +46,6 @@ export const config = {
      * - assets (public assets)
      * - favicon.ico (favicon file)
      */
-    "/((?!api|not-found|_next/static|_next/image|assets|favicon.ico).*)",
+    '/((?!api|not-found|_next/static|_next/image|assets|favicon.ico).*)',
   ],
 };
