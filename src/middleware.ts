@@ -1,7 +1,7 @@
 // import { jwtDecode } from "jwt-decode";
 import { NextRequest, NextResponse } from 'next/server';
-import { UserRole } from './app/shared/utils/types';
-import { public_routes } from '@utils/constants';
+import { UserRole } from './app/shared/types';
+import { public_routes } from '@shared/constants';
 
 const token =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';

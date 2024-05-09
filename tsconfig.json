@@ -23,11 +23,11 @@
       "@context/*": ["./src/app/shared/context/*"],
       "@hooks/*": ["./src/app/hooks/*"],
       "@lib/*": ["./src/app/lib/*"],
-      "@utils/*": ["./src/app/shared/utils/*"],
+      "@shared/*": ["./src/app/shared/*"],
       // this at last so that intellisense prioritizes this last
       "@/*": ["./src/app/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "jest.config.js"],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,5 @@
 import { SWRConfiguration } from 'swr';
-import fetchClient from '../lib/FetchInstance';
+import fetchClient from './lib/FetchInstance';
 
 export function createSWRConfig(config?: SWRConfiguration): SWRConfiguration {
   return {

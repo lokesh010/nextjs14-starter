@@ -1,4 +1,4 @@
-import { ILogin } from '@/login/Form/types';
+import { ILogin } from '@/login/types';
 import fetchClient from '@/shared/lib/FetchInstance';
 
 export const loginReq = (data: ILogin) =>

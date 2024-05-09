@@ -1,5 +1,5 @@
 'use client';
-import { createSWRConfig } from '@utils/helpers';
+import { createSWRConfig } from '@/shared/helpers';
 import React, { ReactElement } from 'react';
 import { SWRConfig } from 'swr';
 
